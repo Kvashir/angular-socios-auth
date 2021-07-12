@@ -8,6 +8,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class RegistrFormComponent implements OnInit {
   @Input() formGroup!:FormGroup;
+  @Input() error!:string;
   @Output() eventRegister= new EventEmitter();
 
   hide:boolean=true;
@@ -19,6 +20,7 @@ export class RegistrFormComponent implements OnInit {
 
   submit(){
     this.eventRegister.emit(this.formGroup.value);
+    this.formGroup.reset(); 
   }
 
 }
